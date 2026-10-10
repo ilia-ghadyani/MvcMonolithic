@@ -65,8 +65,16 @@ namespace MvcMonolithic.Models.Services.Repositories
         #region [- Delete() -]
         public async Task Delete(Person person)
         {
-            _projectDbContext.Remove(person);
-            await _projectDbContext.SaveChangesAsync();
+            try
+            {
+                _projectDbContext.Remove(person);
+                await _projectDbContext.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         #endregion
 
