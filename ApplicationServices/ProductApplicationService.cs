@@ -21,8 +21,8 @@ namespace MvcMonolithic.ApplicationServices
         {
             var product = new Product
             {
-               ProductName = postProductDto.ProductName,
-               ProductDescription = postProductDto.ProductDescription,
+               Title = postProductDto.Title,
+               DescriptionRecord = postProductDto.DescriptionRecord,
                UnitPrice = postProductDto.UnitPrice,
             };
             await _productRepository.Insert(product);
@@ -40,8 +40,8 @@ namespace MvcMonolithic.ApplicationServices
             }
             var putProductDto = new PutProductDto
             {
-                ProductName = product.ProductName,
-                ProductDescription = product.ProductDescription,
+                Title = product.Title,
+                DescriptionRecord = product.DescriptionRecord,
                 UnitPrice = product.UnitPrice,
             };
             return putProductDto;
@@ -63,8 +63,8 @@ namespace MvcMonolithic.ApplicationServices
                 return;
             }
 
-            product.ProductName = putProductDto.ProductName; 
-            product.ProductDescription = putProductDto.ProductDescription;
+            product.Title = putProductDto.Title; 
+            product.DescriptionRecord = putProductDto.DescriptionRecord;
             product.UnitPrice = putProductDto.UnitPrice;
 
             await _productRepository.Update(product);
@@ -84,8 +84,8 @@ namespace MvcMonolithic.ApplicationServices
             var deleteProductDto = new DeleteProductDto
             {
                 Id = product.Id,
-                ProductName = product.ProductName,
-                ProductDescription = product.ProductDescription,
+                Title = product.Title,
+                DescriptionRecord = product.DescriptionRecord,
                 UnitPrice = product.UnitPrice,
             };
 
@@ -99,8 +99,8 @@ namespace MvcMonolithic.ApplicationServices
             var product = new Product
             {
                 Id = deleteProductDto.Id,
-                ProductName = deleteProductDto.ProductName,
-                ProductDescription= deleteProductDto.ProductDescription,
+                Title = deleteProductDto.Title,
+                DescriptionRecord= deleteProductDto.DescriptionRecord,
                 UnitPrice= deleteProductDto.UnitPrice,
             };
 
@@ -120,8 +120,8 @@ namespace MvcMonolithic.ApplicationServices
             var detailProductDto = new DetailsProductDto
             {
                Id= product.Id,
-               ProductName= product.ProductName,
-               ProductDescription = product.ProductDescription,
+               Title= product.Title,
+               DescriptionRecord = product.DescriptionRecord,
                UnitPrice = product.UnitPrice
             };
             return detailProductDto;
@@ -138,8 +138,8 @@ namespace MvcMonolithic.ApplicationServices
                 var getProductDto = new GetProductDto()
                 {
                     Id = item.Id,
-                    ProductName = item.ProductName,
-                    ProductDescription = item.ProductDescription,
+                    Title = item.Title,
+                    DescriptionRecord = item.DescriptionRecord,
                     UnitPrice = item.UnitPrice,
                 };
                 getProductDtos.Add(getProductDto);
